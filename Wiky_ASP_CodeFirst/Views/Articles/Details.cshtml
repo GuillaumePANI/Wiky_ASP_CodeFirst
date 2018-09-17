@@ -1,0 +1,90 @@
+﻿@model Wiky_ASP_CodeFirst.Models.Article
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Article</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Theme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Theme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Auteur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Auteur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contenu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contenu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Commentaires)
+        </dt>
+
+        <dd>
+            <table style="width:60%">
+                <tr>
+                    <td>Auteur</td>
+                    <td>Contenu</td>
+                    <td>Date</td>
+                    <td></td>
+                </tr>
+                @foreach (var item in Model.Commentaires)
+                {
+                    <tr>
+                        <td>@item.Auteur</td>
+                        <td>@item.Contenu</td>
+                        <td>@item.DateComentaire</td>
+                        <td>@Html.ActionLink("Edit", "Edit", "Commentaires", new { id = item.Id_Commentaire }, null) |  @Html.ActionLink("Supprimer", "Delete", "Commentaires", new { id = item.Id_Commentaire }, null) </td>
+
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<h4>Rajouter un commentaire</h4>
+@using (Html.BeginForm("Create", "Commentaires"))
+{
+    @Html.AntiForgeryToken()""
+    @Html.Hidden("com_Id_Article", Model.Id_Article)
+    <div> <label>Auteur</label> @Html.TextBox("Auteur", "") </div>
+    <div> <label>Commentaire</label> @Html.TextArea("Contenu", "") </div>
+    <div><input type="submit" value="Valider" /></div>
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Article }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

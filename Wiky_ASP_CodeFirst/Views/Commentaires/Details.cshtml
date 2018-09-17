@@ -1,0 +1,50 @@
+﻿@model Wiky_ASP_CodeFirst.Models.Commentaire
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Commentaire</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Article.Theme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Article.Theme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Auteur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Auteur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateComentaire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateComentaire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contenu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contenu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Commentaire }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
