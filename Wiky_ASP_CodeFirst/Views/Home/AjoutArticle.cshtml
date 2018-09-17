@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Créer un Article";
+}
+
+<h2>Création d'Article</h2>
+@model Wiky_ASP_CodeFirst.Models.Article
+
+@using (Html.BeginForm())
+{
+    <div> @Html.LabelFor(a => a.Auteur)</div>
+    <div> @Html.TextBoxFor(a => a.Auteur)</div>
+    <div> @Html.LabelFor(a => a.Theme)</div>
+    <div> @Html.TextBoxFor(a => a.Theme)</div>
+    <div> @Html.LabelFor(a => a.Image) </div>
+    <div>@Html.TextBoxFor(a => a.Image)</div>
+    <div> @Html.LabelFor(a => a.Contenu)</div>
+    <div> @Html.TextAreaFor(a => a.Contenu, new { style = "height : 200px" })</div>
+    <div><input type="submit" value="Valider" /></div>
+
+}

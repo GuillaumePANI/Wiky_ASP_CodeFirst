@@ -165,6 +165,10 @@
     <Compile Include="Migrations\201809161139066_Creation_DB.Designer.cs">
       <DependentUpon>201809161139066_Creation_DB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809171030202_Rajout_FK_Article.cs" />
+    <Compile Include="Migrations\201809171030202_Rajout_FK_Article.Designer.cs">
+      <DependentUpon>201809171030202_Rajout_FK_Article.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Commentaire.cs" />
@@ -210,6 +214,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\AjoutArticle.cshtml" />
+    <Content Include="Views\Home\ListeArticles.cshtml" />
+    <Content Include="Views\Home\DetailArticle.cshtml" />
+    <Content Include="Views\Home\EditArticle.cshtml" />
+    <Content Include="Views\Home\EditCom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -230,6 +239,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809161139066_Creation_DB.resx">
       <DependentUpon>201809161139066_Creation_DB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809171030202_Rajout_FK_Article.resx">
+      <DependentUpon>201809171030202_Rajout_FK_Article.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -16,6 +16,6 @@ namespace Wiky_ASP_CodeFirst.Models
         public DateTime DateCreation { get; set; }
         public string Image { get; set; }
         public string Contenu { get; set; }
-        public ObservableCollection<Commentaire> Commentaires { get; set; }
+        public virtual ObservableCollection<Commentaire> Commentaires { get; set; }
     }
 }

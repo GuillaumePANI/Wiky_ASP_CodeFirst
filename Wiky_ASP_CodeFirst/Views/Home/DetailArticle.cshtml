@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "DetailArticle";
+}
+@model Wiky_ASP_CodeFirst.Models.Article
+<h2>Article en détail</h2>
+
+
+<div> @Html.LabelFor(a => a.Auteur) @Html.DisplayFor(a => a.Auteur)</div>
+<div> @Html.LabelFor(a => a.Theme) @Html.DisplayFor(a => a.Theme)</div>
+<div> @Html.LabelFor(a => a.Image) @Html.DisplayFor(a => a.Image)</div>
+<div> @Html.LabelFor(a => a.Contenu) @Html.DisplayFor(a => a.Contenu)</div>
+<div> @Html.Label("Créé le :") @Html.DisplayFor(a => a.DateCreation)</div>
+
+<h4>Rajouter un commentaire</h4>
+@using (Html.BeginForm("AddCom", "Home"))
+{
+    @Html.Hidden("com_Id_Article", Model.Id_Article)
+    <div> <label>Auteur</label> @Html.TextBox("Auteur", "") </div>
+    <div> <label>Commentaire</label> @Html.TextArea("Contenu", "") </div>
+    <div><input type="submit" value="Valider" /></div>
+}
+    <div>
+        <table style="width:60%">
+            <tr>
+                <th>Auteur</th>
+                <th>Date</th>
+                <th>Commentaire</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.Commentaires)
+            {
+                <tr>
+                <td>@item.Auteur</td>
+                <td>@item.DateComentaire.ToShortDateString()</td>
+                <td>@item.Contenu</td>
+                <td>@Html.ActionLink("Edit", "EditCom", "Home", new { id = item.Id_Commentaire }, null) |  @Html.ActionLink("Supprimer", "DeleteCom", "Home", new { id = item.Id_Commentaire }, null) </td>
+                </tr>
+            }
+
+        </table>
+    </div>

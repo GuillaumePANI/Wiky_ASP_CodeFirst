@@ -1,19 +1,17 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+ 
 }
 
-@{
-    ViewBag.Title = "Home Page";
-}
-
+<h1>Wiky </h1>
 @model Wiky_ASP_CodeFirst.Models.Article
 
 @using (Html.BeginForm())
 {
-    <div> @Html.LabelFor(a => a.Auteur) @Html.TextBoxFor(a => a.Auteur)</div>
-    <div> @Html.LabelFor(a => a.Theme) @Html.TextBoxFor(a => a.Theme)</div>
-    <div> @Html.LabelFor(a => a.Image) @Html.TextBoxFor(a => a.Image)</div>
-    <div> @Html.LabelFor(a => a.Contenu) @Html.TextBoxFor(a => a.Contenu, new { style = "height : 200px" })</div>
-    <div><input type="submit" value="Valider"/></div>
+    <div> @Html.LabelFor(a => a.Auteur) @Html.DisplayFor(a => a.Auteur)</div>
+    <div> @Html.LabelFor(a => a.Theme) @Html.DisplayFor(a => a.Theme)</div>
+    <div> @Html.LabelFor(a => a.Image) @Html.DisplayFor(a => a.Image)</div>
+    <div> @Html.LabelFor(a => a.Contenu) @Html.DisplayFor(a => a.Contenu)</div>
+    <div> @Html.Label("Créé le :") @Html.DisplayFor(a => a.DateCreation)</div>
 
 }
