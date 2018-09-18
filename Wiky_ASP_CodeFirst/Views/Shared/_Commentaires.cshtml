@@ -14,7 +14,7 @@
             <td>@item.Contenu</td>
             <td>@item.DateComentaire</td>
             <td>@Ajax.ActionLink("Edit", "Edit", "Commentaires", new { id = item.Id_Commentaire }, new AjaxOptions {UpdateTargetId = "listeCom" }) |  @Ajax.ActionLink("Supprimer", "DeleteConfirmed", "Commentaires", new { id = item.Id_Commentaire }, new AjaxOptions { UpdateTargetId = "listeCom" }) </td>
-
+            
         </tr>
     }
 </table>

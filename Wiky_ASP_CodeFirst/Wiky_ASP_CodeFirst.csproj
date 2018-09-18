@@ -171,6 +171,10 @@
     <Compile Include="Migrations\201809171030202_Rajout_FK_Article.Designer.cs">
       <DependentUpon>201809171030202_Rajout_FK_Article.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809181309193_Add_constraint.cs" />
+    <Compile Include="Migrations\201809181309193_Add_constraint.Designer.cs">
+      <DependentUpon>201809181309193_Add_constraint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Commentaire.cs" />
@@ -251,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809171030202_Rajout_FK_Article.resx">
       <DependentUpon>201809171030202_Rajout_FK_Article.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809181309193_Add_constraint.resx">
+      <DependentUpon>201809181309193_Add_constraint.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

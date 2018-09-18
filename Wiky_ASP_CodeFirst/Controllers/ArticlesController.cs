@@ -117,6 +117,16 @@ namespace Wiky_ASP_CodeFirst.Controllers
             return RedirectToAction("Index");
         }
 
+        public JsonResult Verifier(string theme)
+        {
+            bool res = false;
+            var themes = db.Articles.Select(a => a.Theme).ToList();
+            
+            if (themes.Where(a => a == theme).FirstOrDefault() == null)
+                res = true;
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

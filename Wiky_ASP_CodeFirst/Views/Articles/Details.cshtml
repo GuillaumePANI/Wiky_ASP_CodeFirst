@@ -65,8 +65,12 @@
 {
     @Html.AntiForgeryToken()
     @Html.Hidden("com_Id_Article", Model.Id_Article)
-    <div> <label>Auteur</label> @Html.TextBox("Auteur", "") </div>
-    <div> <label>Commentaire</label> @Html.TextArea("Contenu", "") </div>
+    <div> <label>Auteur</label> @Html.TextBox("Auteur", "") 
+    @Html.ValidationMessage("Auteur")</div>
+    <div>
+        <label>Commentaire</label> @Html.TextArea("Contenu", "")
+        @Html.ValidationMessage("Contenu")
+    </div>
     <div><input type="submit" value="Valider" /></div>
 }
 <p>

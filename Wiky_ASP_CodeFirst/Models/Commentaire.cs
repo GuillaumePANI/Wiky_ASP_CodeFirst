@@ -11,8 +11,11 @@ namespace Wiky_ASP_CodeFirst.Models
     {
         [Key]
         public int Id_Commentaire { get; set; }
+
+        [Required]
         public string Auteur { get; set; }
         public DateTime DateComentaire { get; set; }
+        [Required]
         public string Contenu { get; set; }
 
         [ForeignKey("Article")]
