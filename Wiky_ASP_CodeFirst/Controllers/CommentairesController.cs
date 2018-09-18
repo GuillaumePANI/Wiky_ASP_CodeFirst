@@ -51,16 +51,16 @@ namespace Wiky_ASP_CodeFirst.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id_Commentaire,Auteur,DateComentaire,Contenu,Com_Id_Article")] Commentaire commentaire)
         {
+            var listeCom = db.Commentaires.Where(a => a.Com_Id_Article == commentaire.Com_Id_Article);
             if (ModelState.IsValid)
             {
                 commentaire.DateComentaire = DateTime.Now;
                 db.Commentaires.Add(commentaire);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Articles", new {id = commentaire.Com_Id_Article });
+                return PartialView("_Commentaires", listeCom);
             }
-
             ViewBag.Com_Id_Article = new SelectList(db.Articles, "Id_Article", "Theme", commentaire.Com_Id_Article);
-            return View(commentaire);
+            return PartialView("_Commentaires", listeCom );
         }
 
         // GET: Commentaires/Edit/5
@@ -99,6 +99,7 @@ namespace Wiky_ASP_CodeFirst.Controllers
         // GET: Commentaires/Delete/5
         public ActionResult Delete(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -112,14 +113,15 @@ namespace Wiky_ASP_CodeFirst.Controllers
         }
 
         // POST: Commentaires/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+       
+       
         public ActionResult DeleteConfirmed(int id)
         {
             Commentaire commentaire = db.Commentaires.Find(id);
             db.Commentaires.Remove(commentaire);
             db.SaveChanges();
-            return RedirectToAction("Details", "Articles", new {id = commentaire.Com_Id_Article });
+            var listeCom = db.Commentaires.Where(a => a.Com_Id_Article == commentaire.Com_Id_Article);
+            return PartialView("_Commentaires", listeCom );
         }
 
         protected override void Dispose(bool disposing)

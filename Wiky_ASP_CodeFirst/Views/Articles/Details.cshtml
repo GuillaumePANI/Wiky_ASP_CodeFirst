@@ -54,31 +54,16 @@
         </dt>
 
         <dd>
-            <table style="width:60%">
-                <tr>
-                    <td>Auteur</td>
-                    <td>Contenu</td>
-                    <td>Date</td>
-                    <td></td>
-                </tr>
-                @foreach (var item in Model.Commentaires)
-                {
-                    <tr>
-                        <td>@item.Auteur</td>
-                        <td>@item.Contenu</td>
-                        <td>@item.DateComentaire</td>
-                        <td>@Html.ActionLink("Edit", "Edit", "Commentaires", new { id = item.Id_Commentaire }, null) |  @Html.ActionLink("Supprimer", "Delete", "Commentaires", new { id = item.Id_Commentaire }, null) </td>
-
-                    </tr>
-                }
-            </table>
+            <div id="listeCom">
+                @Html.Partial("_Commentaires", Model.Commentaires)
+            </div>
         </dd>
     </dl>
 </div>
 <h4>Rajouter un commentaire</h4>
-@using (Html.BeginForm("Create", "Commentaires"))
+@using (Ajax.BeginForm("Create","Commentaires"  , new AjaxOptions {UpdateTargetId = "listeCom" }))
 {
-    @Html.AntiForgeryToken()""
+    @Html.AntiForgeryToken()
     @Html.Hidden("com_Id_Article", Model.Id_Article)
     <div> <label>Auteur</label> @Html.TextBox("Auteur", "") </div>
     <div> <label>Commentaire</label> @Html.TextArea("Contenu", "") </div>
