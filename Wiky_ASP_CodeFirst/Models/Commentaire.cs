@@ -12,7 +12,7 @@ namespace Wiky_ASP_CodeFirst.Models
         [Key]
         public int Id_Commentaire { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="T'es qui wesh ?")]
         public string Auteur { get; set; }
         public DateTime DateComentaire { get; set; }
         [Required]

@@ -127,6 +127,16 @@ namespace Wiky_ASP_CodeFirst.Controllers
             return Json(res, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public ActionResult Rechercher(string Rechercher)
+        {
+            var Articles = db.Articles.Where(a => a.Theme.Contains(Rechercher) || a.Contenu.Contains(Rechercher) || a.Auteur.Contains(Rechercher));
+            return View("Index", Articles);
+        }
+
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

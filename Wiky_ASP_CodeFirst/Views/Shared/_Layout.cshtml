@@ -17,7 +17,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top navcolor navtext">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,13 +27,15 @@
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Ajouter une article", "Create", "Articles")</li>
-                    <li>@Html.ActionLink("Consulter la liste des articles", "Index", "Articles")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <div class="navbar-collapse collapse navtext">
+                <ul class="nav navbar-nav navtext">
+                    <li class="navtext">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="navtext">@Html.ActionLink("Ajouter une article", "Create", "Articles")</li>
+                    <li class="navtext">@Html.ActionLink("Ajouter une article", "Create", "Articles")</li>
+                    <li class="navtext">@Html.ActionLink("Consulter la liste des articles", "Index", "Articles")</li>
+                    <li class="navtext">@Html.ActionLink("About", "About", "Home")</li>
+                    <li class="navtext">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="navtext">@using (Html.BeginForm("Rechercher","Articles")) { <input type="search" id="Rechercher un article" name="Rechercher" /><button>Rechercher</button> } </ li >
                 </ul>
             </div>
         </div>
